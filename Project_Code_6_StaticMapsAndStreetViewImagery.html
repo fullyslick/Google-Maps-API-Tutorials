@@ -229,8 +229,16 @@
           infowindow.addListener('closeclick', function() {
             infowindow.marker = null;
           });
+
+          // https://youtu.be/tvnTfQMaDEs
+          // Start new street view service
+          // Static maps are not used here, but you can check: https://developers.google.com/maps/documentation/maps-static/intro
+          // More about streetview API: https://developers.google.com/maps/documentation/streetview/intro
           var streetViewService = new google.maps.StreetViewService();
+
+          // Define a radius at which the street view API should look for streetview
           var radius = 50;
+
           // In case the status is OK, which means the pano was found, compute the
           // position of the streetview image, then calculate the heading, then get a
           // panorama from that and set the options
@@ -296,10 +304,7 @@
 
     </script>
 
-    <script async defer
-        src=
-        "https://maps.googleapis.com/maps/api/js?key=MYAPIKEY&libraries=geometry&v=3&callback=initMap">
-    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8Zg1KCtmv_PZCsR_BhgIYmV4sep78eyw&v=3&callback=initMap"></script>
 
   </body>
 </html>
