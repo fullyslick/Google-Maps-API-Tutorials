@@ -20,6 +20,7 @@
     <script>
       var map;
 
+      // https://youtu.be/TBBmxnIHbBc
       // Create a new blank array for all the listing markers.
       var markers = [];
 
@@ -59,12 +60,15 @@
           });
           // Push the marker to our array of markers.
           markers.push(marker);
+
           // Create an onclick event to open an infowindow at each marker.
           marker.addListener('click', function() {
             populateInfoWindow(this, largeInfowindow);
           });
+
           bounds.extend(markers[i].position);
         }
+
         // Extend the boundaries of the map for each marker
         map.fitBounds(bounds);
       }
@@ -85,10 +89,6 @@
         }
       }
     </script>
-
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=MYAPIKEY&v=3&callback=initMap">
-    </script>
-
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8Zg1KCtmv_PZCsR_BhgIYmV4sep78eyw&v=3&callback=initMap"></script>
   </body>
 </html>
