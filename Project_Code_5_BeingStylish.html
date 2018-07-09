@@ -70,6 +70,13 @@
 
       function initMap() {
         // Create a styles array to use with the map.
+        // NOTE links to check:
+        // https://youtu.be/tNwxEiIQ20Q
+        // https://developers.google.com/maps/documentation/javascript/styling
+        // https://developers.google.com/maps/documentation/javascript/styling#creating_a_styledmaptype
+        // https://mapstyle.withgoogle.com/
+        // Pre-made maps https://snazzymaps.com
+
         var styles = [
           {
             featureType: 'water',
@@ -141,7 +148,7 @@
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 40.7413549, lng: -73.9980244},
           zoom: 13,
-          styles: styles,
+          styles: styles, // This where the style above is applied
           mapTypeControl: false
         });
 
@@ -249,10 +256,7 @@
 
     </script>
 
-    <script async defer
-        src=
-        "https://maps.googleapis.com/maps/api/js?key=MYAPIKEY&v=3&callback=initMap">
-    </script>
+   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8Zg1KCtmv_PZCsR_BhgIYmV4sep78eyw&v=3&callback=initMap"></script>
 
   </body>
 </html>
