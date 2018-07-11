@@ -209,13 +209,18 @@
           mapTypeControl: false
         });
 
+        // https://youtu.be/-uHDYCEnifU
         // This autocomplete is for use in the search within time entry box.
+        // Attach the autocomplete object to an input.
         var timeAutocomplete = new google.maps.places.Autocomplete(
             document.getElementById('search-within-time-text'));
         // This autocomplete is for use in the geocoder entry box.
+        // Attach the autocomplete object to an input.
         var zoomAutocomplete = new google.maps.places.Autocomplete(
             document.getElementById('zoom-to-area-text'));
         //Bias the boundaries within the map for the zoom to area text.
+        // When using bindTo() method, we attach the auto complete to show results,
+        // for specific input (#zoom-to-area-text) for the area the maps is currently displaying
         zoomAutocomplete.bindTo('bounds', map);
 
         // These are the real estate listings that will be shown to the user.
@@ -571,10 +576,8 @@
         });
       }
     </script>
-
-    <script async defer
-        src=
-        "https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=MYAPIKEY&v=3&callback=initMap">
+    <!-- To use autocomplete do not forget tp include "places" library -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyA8Zg1KCtmv_PZCsR_BhgIYmV4sep78eyw&v=3&callback=initMap">
     </script>
 
   </body>
