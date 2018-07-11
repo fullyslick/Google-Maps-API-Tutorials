@@ -444,6 +444,7 @@
       // This function allows the user to input a desired travel time, in
       // minutes, and a travel mode, and a location - and only show the listings
       // that are within that travel time (via that travel mode) of the location
+      // https://youtu.be/jt1kKvuJTy4
       function searchWithinTime() {
         // Initialize the distance matrix service.
         var distanceMatrixService = new google.maps.DistanceMatrixService;
@@ -456,11 +457,15 @@
           // Use the distance matrix service to calculate the duration of the
           // routes between all our markers, and the destination address entered
           // by the user. Then put all the origins into an origin matrix.
+          // origins - holds all starting points, in this case all markers (listings)
           var origins = [];
           for (var i = 0; i < markers.length; i++) {
             origins[i] = markers[i].position;
           }
+          // destination - the address inserted by the user
           var destination = address;
+          // Grab the mode of travel entered by user - BICYCLING, DRIVING, TRANSIT, WALKING
+          // https://developers.google.com/maps/documentation/javascript/distancematrix#travel_modes
           var mode = document.getElementById('mode').value;
           // Now that both the origins and destination are defined, get all the
           // info for the distances between them.
@@ -468,7 +473,7 @@
             origins: origins,
             destinations: [destination],
             travelMode: google.maps.TravelMode[mode],
-            unitSystem: google.maps.UnitSystem.IMPERIAL,
+            unitSystem: google.maps.UnitSystem.METRIC,
           }, function(response, status) {
             if (status !== google.maps.DistanceMatrixStatus.OK) {
               window.alert('Error was: ' + status);
@@ -482,11 +487,14 @@
       // This function will go through each of the results, and,
       // if the distance is LESS than the value in the picker, show it on the map.
       function displayMarkersWithinTime(response) {
+        // Get the max duration the user have specified.
         var maxDuration = document.getElementById('max-duration').value;
+        // Get the array from the response that holds all origins (markers)
         var origins = response.originAddresses;
+        // Get the array from the response that holds all destinations (the destination the use has choosen)
         var destinations = response.destinationAddresses;
         // Parse through the results, and get the distance and duration of each.
-        // Because there might be  multiple origins and destinations we have a nested loop
+        // Because there might be multiple origins and destinations we have a nested loop
         // Then, make sure at least 1 result was found.
         var atLeastOne = false;
         for (var i = 0; i < origins.length; i++) {
@@ -502,7 +510,9 @@
               // and the text.
               var duration = element.duration.value / 60;
               var durationText = element.duration.text;
+              // Check if the duration is within the time the user has specified.
               if (duration <= maxDuration) {
+                // Display the marker (origin) that is within distance defined.
                 //the origin [i] should = the markers[i]
                 markers[i].setMap(map);
                 atLeastOne = true;
@@ -530,7 +540,7 @@
 
     <script async defer
         src=
-        "https://maps.googleapis.com/maps/api/js?libraries=geometry,drawing&key=MYAPIKEY&v=3&callback=initMap">
+        "https://maps.googleapis.com/maps/api/js?libraries=geometry,drawing&key=AIzaSyA8Zg1KCtmv_PZCsR_BhgIYmV4sep78eyw&v=3&callback=initMap">
     </script>
 
   </body>
