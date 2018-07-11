@@ -17,9 +17,9 @@ function callDistabnceApi(){
 
 // Store the parameters for the request in variables.
 var origin1 = new google.maps.LatLng(55.930385, -3.118425);
-var origin2 = 'Greenwich, England';
-var destinationA = 'Stockholm, Sweden';
-var destinationB = new google.maps.LatLng(50.087692, 14.421150);
+var origin2 = '4800 El Camino Real, Los Altos, CA';
+var destinationA = new google.maps.LatLng(50.087692, 14.421150);
+var destinationB = '2465 Lathem Street, Mountain View, CA';
 
 // Create new DistanceMatrixService object to make a request
 var service = new google.maps.DistanceMatrixService();
@@ -33,7 +33,7 @@ service.getDistanceMatrix(
     travelMode: 'DRIVING',
     // transitOptions: TransitOptions, optional
     // drivingOptions: DrivingOptions, optianal
-    unitSystem: google.maps.UnitSystem.METRIC,
+    unitSystem: google.maps.UnitSystem.IMPERIAL,
     avoidHighways: false,
     avoidTolls: false,
   }, makeReuqestToDistanceAPI); // then call request
