@@ -25,4 +25,4 @@ function showCoordinates(addressString){
 }
 
 // Execute function
-showCoordinates('Ruse, Bulgaria');
+showCoordinates('Varna, Bulgaria');

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- Type place to seacrh here -->
+  <div>
+    <input id="search-input" type="text" placeholder="Search for place">
+    <input id="search-place-btn" type="button" value="Go"></div>
+    <div id="display-result-area">
+    </div>
+  <div id="map" style="width: 100%; height: 100vh; border: solid 1px;">
+
+  </div>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry&key=AIzaSyA8Zg1KCtmv_PZCsR_BhgIYmV4sep78eyw&v=3&callback=initMap" charset="utf-8"></script>
+  <script src="places-details.js"></script>
+</body>
+
+</html>
